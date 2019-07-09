@@ -49,7 +49,7 @@ abstract class User implements CSV // id ; fio ; email ; phone
 
     public String toCSV()
     {
-       return this.id.toString() + " ; " + this.fio + " ; " + this.email + " ; " + this.phone;
+        return this.id.toString() + " ; " + this.fio + " ; " + this.email + " ; " + this.phone;
     }
 
     public void fromCSV(String str)
