@@ -1,10 +1,10 @@
 .idea/*.*
 .gradle/
-Accouts/build/
-Accouts/gradlew
-Accouts/.gradle/
-Accouts/gradlew.bat
-Accouts/settings.gradle
+Accounts/build/
+Accounts/gradlew
+Accounts/.gradle/
+Accounts/gradlew.bat
+Accounts/settings.gradle
 calculator/build/
 calculator/gradlew
 calculator/.gradle/
