@@ -1,4 +1,5 @@
 .idea/*.*
+.gradle/
 Accouts/build/
 Accouts/gradlew
 Accouts/.gradle/

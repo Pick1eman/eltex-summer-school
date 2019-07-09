@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 abstract class User implements CSV // id ; fio ; email ; phone
 {
-    private Integer id;
+    private String id;
     private String fio;
     private String phone;
     private String email;
 
 
-    public Integer getId()
+    public String getId()
     {
         return this.id;
     }
 
-    public void setId(Integer id)
+    public void setId(String id)
     {
         this.id = id;
     }
@@ -49,13 +49,16 @@ abstract class User implements CSV // id ; fio ; email ; phone
 
     public String toCSV()
     {
-        return this.id.toString() + " ; " + this.fio + " ; " + this.email + " ; " + this.phone;
+        return this.id + "; " + this.fio + "; " + this.email + "; " + this.phone;
     }
 
     public void fromCSV(String str)
     {
-        String []arr = str.split(" ; ");
-        this.id = Integer.valueOf(arr[0]);
+        String []arr = str.split("; ");
+        setId(arr[0]);
+        setFio(arr[1]);
+        setEmail(arr[2]);
+        setPhone(arr[3]);
     }
 
 }

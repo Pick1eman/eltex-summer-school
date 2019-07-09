@@ -6,12 +6,6 @@ class Sale
     private String title;
     private String price;
 
-    Sale(String title, String price)
-    {
-        this.title = title;
-        this.price = price;
-    }
-
     public String getTitle()
     {
         return title;
@@ -30,5 +24,10 @@ class Sale
     public void setPrice(String price)
     {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return this.title + " " + this.price;
     }
 }

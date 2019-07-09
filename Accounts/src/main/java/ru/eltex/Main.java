@@ -5,9 +5,11 @@ class Main{
     public static void main(String args[])
     {
         Manager a = new Manager();
-        Sale product = new Sale("Cats","10000");
-        a.addProduct(product);
-        System.out.println("Product: " + product.getTitle() + "; Cost: " + product.getPrice());
+        Developer b = new Developer();
+        a.readFromFileManager("/home/user/Рабочий стол/eltex-summer-school/Accounts/src/main/resources/Managers.csv");
+        a.printListManager();
+        b.readFromFileDeveloper("/home/user/Рабочий стол/eltex-summer-school/Accounts/src/main/resources/Developers.csv");
+        b.printListDeveloper();
     }
 
 }
