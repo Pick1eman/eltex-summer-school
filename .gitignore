@@ -1,5 +1,6 @@
-./.idea
-./Accouts/build
+./.idea/
+./Accouts/build/
 ./Accouts/gradlew
+./Accouts/gradle/
 ./Accouts/gradlew.bat
 ./Accouts/settings.gradle
