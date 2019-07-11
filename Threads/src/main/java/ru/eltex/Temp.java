@@ -2,15 +2,16 @@ package ru.eltex;
 
 class Temp
 {
-    static private int a = 0;
+    static private volatile int a = 0;
     Temp()
     {
     }
 
-    static public synchronized void counter()
+    static public void counter()
     {
         a = a + 1;
         System.out.println("a = " + a);
     }
+
 
 }
