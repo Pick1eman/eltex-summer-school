@@ -10,3 +10,8 @@ calculator/gradlew
 calculator/.gradle/
 calculator/gradlew.bat
 calculator/settings.gradle
+BigValue/build/
+BigValue/gradlew
+BigValue/.gradle/
+BigValue/gradlew.bat
+BigValue/settings.gradle
