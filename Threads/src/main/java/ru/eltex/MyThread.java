@@ -5,7 +5,12 @@ class MyThread implements Runnable
     private Integer numThread = 0;
     public void run()
     {
-        Temp.counter();
+        Temp a = new Temp();
+        try {
+            a.counter();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     MyThread()
