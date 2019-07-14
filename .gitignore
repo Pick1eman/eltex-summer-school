@@ -20,4 +20,9 @@ Threads/gradlew
 Threads/.gradle/
 Threads/gradlew.bat
 Threads/settings.gradle
+Enum/build/
+Enum/gradlew
+Enum/.gradle/
+Enum/gradlew.bat
+Enum/settings.gradle
 
