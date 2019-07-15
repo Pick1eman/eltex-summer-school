@@ -32,3 +32,4 @@ Proc/gradlew.bat
 Proc/settings.gradle
 Proc/.idea/
 Proc/gradle/
+Proc/target/
