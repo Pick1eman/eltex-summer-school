@@ -25,4 +25,10 @@ Enum/gradlew
 Enum/.gradle/
 Enum/gradlew.bat
 Enum/settings.gradle
-
+Proc/build/
+Proc/gradlew
+Proc/.gradle/
+Proc/gradlew.bat
+Proc/settings.gradle
+Proc/.idea/
+Proc/gradle/
