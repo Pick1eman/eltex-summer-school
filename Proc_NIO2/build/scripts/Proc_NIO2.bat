@@ -66,7 +66,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=%APP_HOME%\lib\Proc_NIO2.jar
 
 @rem Execute Proc_NIO2
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PROC_NI_O2_OPTS%  -classpath "%CLASSPATH%" ru.eltex.EnumMainprog %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PROC_NI_O2_OPTS%  -classpath "%CLASSPATH%" ru.eltex.Main %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell

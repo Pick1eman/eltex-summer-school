@@ -33,3 +33,8 @@ Proc/settings.gradle
 Proc/.idea/
 Proc/gradle/
 Proc/target/
+Proc_NIO2/build/
+Proc_NIO2/gradlew
+Proc_NIO2/.gradle/
+Proc_NIO2/gradlew.bat
+Proc_NIO2/settings.gradle
