@@ -12,14 +12,18 @@ import java.util.Scanner;
 class Main
 {
     public static void main(String[] args) {
-        try(ServerSocket s = new ServerSocket(1025))
+        try(ServerSocket s = new ServerSocket(1026))
         {
             Socket client  = s.accept();
             InputStream inStream = client.getInputStream();
             OutputStream outStream = client.getOutputStream();
             Scanner sc = new Scanner(inStream);
             PrintWriter out = new PrintWriter(outStream);
-            out.write("Test!");
+            out.write("Hi, you can write something: \n");
+            out.flush();
+            String line = sc.nextLine();
+            System.out.println("Пришло: " + line);
+            out.write("Hi you writed: " + line + "\n");
             out.flush();
         } catch (IOException ex)
         {
