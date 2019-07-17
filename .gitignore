@@ -62,3 +62,9 @@ ServerUDP/gradlew
 ServerUDP/.gradle/
 ServerUDP/gradlew.bat
 ServerUDP/settings.gradle
+
+WebServer/build/
+WebServer/gradlew
+WebServer/.gradle/
+WebServer/gradlew.bat
+WebServer/settings.gradle
