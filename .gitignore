@@ -80,3 +80,9 @@ BroadcastClient/gradlew
 BroadcastClient/.gradle/
 BroadcastClient/gradlew.bat
 BroadcastClient/settings.gradle
+
+Parsing/build/
+Parsing/gradlew
+Parsing/.gradle/
+Parsing/gradlew.bat
+Parsing/settings.gradle
