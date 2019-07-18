@@ -13,14 +13,15 @@ class Main
             File file = new File("/home/user/Рабочий стол/eltex-summer-school/WebServer/resources/index.html");
             Scanner scFile = new Scanner(file).useDelimiter("\0");
             String in = scFile.next();
-            String serv = "HTTP/1.0 200 OK\nContent-Length:" + Integer.toString(in.length()) + "\n\n" + in;
 
-            while (true) {
+            while (true)
+            {
                 Socket client = s.accept();
                 new Thread(()->{
                     try {
                         OutputStream outStream = client.getOutputStream();
                         PrintWriter out = new PrintWriter(outStream);
+                        String serv = "HTTP/1.0 200 OK\nContent-Length:" + Integer.toString(in.length()) + "\n\n" + in;
                         out.write(serv);
                         out.flush();
                     } catch (IOException error)

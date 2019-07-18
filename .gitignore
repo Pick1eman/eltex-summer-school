@@ -68,3 +68,15 @@ WebServer/gradlew
 WebServer/.gradle/
 WebServer/gradlew.bat
 WebServer/settings.gradle
+
+BroadcastServer/build/
+BroadcastServer/gradlew
+BroadcastServer/.gradle/
+BroadcastServer/gradlew.bat
+BroadcastServer/settings.gradle
+
+BroadcastClient/build/
+BroadcastClient/gradlew
+BroadcastClient/.gradle/
+BroadcastClient/gradlew.bat
+BroadcastClient/settings.gradle
