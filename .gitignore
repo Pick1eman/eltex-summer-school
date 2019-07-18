@@ -86,3 +86,9 @@ Parsing/gradlew
 Parsing/.gradle/
 Parsing/gradlew.bat
 Parsing/settings.gradle
+
+MySQL/build/
+MySQL/gradlew
+MySQL/.gradle/
+MySQL/gradlew.bat
+MySQL/settings.gradle
