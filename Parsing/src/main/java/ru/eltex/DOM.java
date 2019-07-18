@@ -29,6 +29,7 @@ class DOM
             NamedNodeMap attributes = msg.getAttributes();
             //msgs.add(new msg(attributes.getNamedItem("to").getNodeValue(),attributes.getNamedItem("from").getNodeValue(),attributes.getNamedItem("title").getNodeValue()));
             System.out.println(attributes.getNamedItem("to").getNodeValue() + " " + attributes.getNamedItem("from").getNodeValue() + " " + attributes.getNamedItem("title").getNodeValue());
+            System.out.println("Text: " + msg.getTextContent());
         }
         /*for (String msg : msgs)
         {
