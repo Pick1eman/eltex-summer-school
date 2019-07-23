@@ -1,0 +1,3 @@
+Timer with tran = 0.101332265 seconds
+Timer w/o tran = 51.1003968 seconds
+
