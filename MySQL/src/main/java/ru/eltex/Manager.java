@@ -38,8 +38,8 @@ class Manager extends User
         property.load(fileInputStream);
         Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
         Statement statement = connection.createStatement();
-        statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(12));");
-        statement.executeUpdate("delete from managers where id >= 0");
+        statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(13));");
+        //statement.executeUpdate("delete from managers where id >= 0");
 
         FileReader manager = new FileReader(nameFile);
         Scanner sc = new Scanner(manager);
@@ -48,9 +48,9 @@ class Manager extends User
             String[] str2 = str.split(" \\|\\| ");
             super.fromCSV(str2[0]);
             manager.close();
-            String[] temp = str2[1].split("; ");
+            //String[] temp = str2[1].split("; ");
             String[] str3 = str2[0].split("; ");
-            String[] tmp2 = str2[1].split(": ");
+            //String[] tmp2 = str2[1].split(": ");
             /*for (String tmp : temp) {
                 tmp2 = tmp.split(": ");
                 Sale prod = new Sale();
@@ -58,9 +58,9 @@ class Manager extends User
                 prod.setPrice(tmp2[1]);
                 product.add(prod);
             }*/
-            statement.executeUpdate("insert into managers value(" + str3[0] + ",'" + str3[1] + "','" + str3[2] + "','" + str3[3] + "','" + tmp2[0] + "'," + tmp2[1] + ");");
-            connection.close();
+            statement.executeUpdate("insert into managers value(" + str3[0] + ",'" + str3[1] + "','" + str3[2] + "','" + str3[3] + "');");
         }
+        connection.close();
     }
 
     public void printListManager()
@@ -92,25 +92,4 @@ class Manager extends User
         connection.close();
     }
 
-    public void tempAdd() throws IOException, SQLException {
-        Properties property = new Properties();
-        FileInputStream fileInputStream = new FileInputStream("src/main/java/resources/db.properties");
-        property.load(fileInputStream);
-        Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
-        Statement statement = connection.createStatement();
-        statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(12));");
-        connection.setAutoCommit(false);
-
-        long startTimer = System.nanoTime();
-        for (int i = 0; i < 1000; i++)
-        {
-            statement.executeUpdate("INSERT INTO managers VALUE (" + i + ",'is741s" + i + "','temp2','asdsa');");
-        }
-        long stopTimer = System.nanoTime();
-        long elapsed = stopTimer - startTimer;
-        System.out.println("Timer with tran = " + elapsed/pow(10,9) + " seconds");
-        connection.commit();
-
-        connection.close();
-    }
 }

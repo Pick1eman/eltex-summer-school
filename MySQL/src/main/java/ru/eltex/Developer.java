@@ -46,7 +46,7 @@ class Developer extends User
             for (int i = 0; i < size; i++) {
                 setLanguage(temp[i]);
             }
-            System.out.println("insert into developers ('" + str3[0] + "','" + str3[1] + "','" + str3[2] + "','" + str3[3] + "','" + str2[1] + "');");
+            //System.out.println("insert into developers ('" + str3[0] + "','" + str3[1] + "','" + str3[2] + "','" + str3[3] + "','" + str2[1] + "');");
             statement.executeUpdate("insert into developers value(" + str3[0] + ",'" + str3[1] + "','" + str3[2] + "','" + str3[3] + "','" + str2[1] + "');");
         }
         connection.close();
