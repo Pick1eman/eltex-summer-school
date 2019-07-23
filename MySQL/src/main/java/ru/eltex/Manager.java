@@ -38,7 +38,7 @@ class Manager extends User
         property.load(fileInputStream);
         Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from managers");
+        statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(12));");
         statement.executeUpdate("delete from managers where id >= 0");
 
         FileReader manager = new FileReader(nameFile);
@@ -98,29 +98,19 @@ class Manager extends User
         property.load(fileInputStream);
         Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
         Statement statement = connection.createStatement();
-        statement.executeUpdate("delete from managers where id >= 0");
+        statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(12));");
         connection.setAutoCommit(false);
 
         long startTimer = System.nanoTime();
         for (int i = 0; i < 1000; i++)
         {
-            statement.executeUpdate("INSERT INTO managers VALUE (" + i + ",'is741s" + i + "','temp2','asdsa','asdasf',3000);");
+            statement.executeUpdate("INSERT INTO managers VALUE (" + i + ",'is741s" + i + "','temp2','asdsa');");
         }
         long stopTimer = System.nanoTime();
         long elapsed = stopTimer - startTimer;
         System.out.println("Timer with tran = " + elapsed/pow(10,9) + " seconds");
         connection.commit();
 
-        connection.setAutoCommit(true);
-        statement.executeUpdate("delete from managers where id >= 0");
-        startTimer = System.nanoTime();
-        for (int i = 0; i < 1000; i++)
-        {
-            statement.executeUpdate("INSERT INTO managers VALUE (" + i + ",'is741s" + i + "','temp2','asdsa','asdasf',3000);");
-        }
-        stopTimer = System.nanoTime();
-        elapsed = stopTimer - startTimer;
-        System.out.println("Timer w/o tran = " + elapsed/pow(10,9) + " seconds");
         connection.close();
     }
 }

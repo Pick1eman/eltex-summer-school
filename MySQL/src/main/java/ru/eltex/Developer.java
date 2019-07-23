@@ -30,7 +30,7 @@ class Developer extends User
         property.load(fileInputStream);
         Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from developers");
+        statement.execute("CREATE TABLE IF NOT EXISTS developers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(12), languages varchar(40));");
         statement.executeUpdate("delete from developers where id >= 0");
 
         FileReader developer = new FileReader(nameFile);
