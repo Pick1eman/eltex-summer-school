@@ -1,51 +1,24 @@
 package ru.eltex;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Scanner;
 
 abstract class User implements CSV // id ; fio ; email ; phone
 {
+    @Getter
+    @Setter
     private String id;
+    @Getter
+    @Setter
     private String fio;
+    @Getter
+    @Setter
     private String phone;
+    @Getter
+    @Setter
     private String email;
 
-
-    public String getId()
-    {
-        return this.id;
-    }
-
-    public void setId(String id)
-    {
-        this.id = id;
-    }
-
-    public String getFio()
-    {
-        return this.fio;
-    }
-
-    public void setFio(String str)
-    {
-        this.fio = str;
-    }
-    public String getPhone()
-    {
-        return this.phone;
-    }
-
-    public void setPhone(String str)
-    {
-        this.phone = str;
-    }
-    public String getEmail()
-    {
-        return this.email;
-    }
-
-    public void setEmail(String str)
-    {
-        this.email = str;
-    }
 
     public String toCSV()
     {

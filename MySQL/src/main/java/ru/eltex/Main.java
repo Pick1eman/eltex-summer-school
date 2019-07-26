@@ -9,23 +9,11 @@ import java.util.Scanner;
 class Main{
     public static void main(String args[]) throws IOException, SQLException
     {
-        Manager manager = new Manager();
-        Developer developer = new Developer();
-        manager.readFromFileManager("src/main/java/resources/Managers.csv");
-        developer.readFromFileDeveloper("src/main/java/resources/Developers.csv");
 
-        /*try{
-            Connection connection = DriverManager.getConnection(DB_URL,"root","2973");
-            Statement statement = connection.createStatement();
-            developer.readFromFileDeveloper("src/main/java/resources/Developers.csv");
-            manager.readFromFileManager("src/main/java/resources/Managers.csv");
-            connection.close();
-        } catch (SQLException error)
-        {
-            System.out.println(error.getMessage());
-        }
-*/
-        unionDB();
+        Developer developer = new Developer();
+        developer.readFromFileDeveloper("src/main/java/resources/Developers.csv");
+        Manager manager = new Manager();
+        manager.readFromFileManager("src/main/java/resources/Managers.csv");
     }
 
     public static void unionDB() throws IOException, SQLException {

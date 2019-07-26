@@ -92,3 +92,6 @@ MySQL/gradlew
 MySQL/.gradle/
 MySQL/gradlew.bat
 MySQL/settings.gradle
+MySQL/src/main/java/resources/db.properties
+MySQL/.idea/
+MySQL/gradle/

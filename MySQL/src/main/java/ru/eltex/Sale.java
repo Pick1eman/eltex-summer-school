@@ -1,29 +1,23 @@
 package ru.eltex;
+
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Scanner;
 
 class Sale
 {
+    @Getter
+    @Setter
     private String title;
+    @Getter
+    @Setter
     private String price;
 
-    public String getTitle()
+    Sale(String title, String price)
     {
-        return title;
-    }
-
-    public void setTitle(String title)
-    {
-        this.title = title;
-    }
-
-    public String getPrice()
-    {
-        return price;
-    }
-
-    public void setPrice(String price)
-    {
-        this.price = price;
+        setTitle(title);
+        setPrice(price);
     }
 
     @Override

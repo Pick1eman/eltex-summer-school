@@ -39,26 +39,30 @@ class Manager extends User
         Connection connection = DriverManager.getConnection(property.getProperty("db.host"), property.getProperty("db.user"), property.getProperty("db.password"));
         Statement statement = connection.createStatement();
         statement.execute("CREATE TABLE IF NOT EXISTS managers(id Integer(11), fio varchar(50), email varchar(70), phone varchar(13));");
-        //statement.executeUpdate("delete from managers where id >= 0");
-
-        FileReader manager = new FileReader(nameFile);
-        Scanner sc = new Scanner(manager);
-        while (sc.hasNextLine()) {
-            String str = sc.nextLine();
-            String[] str2 = str.split(" \\|\\| ");
-            super.fromCSV(str2[0]);
-            manager.close();
-            //String[] temp = str2[1].split("; ");
-            String[] str3 = str2[0].split("; ");
-            //String[] tmp2 = str2[1].split(": ");
-            /*for (String tmp : temp) {
-                tmp2 = tmp.split(": ");
-                Sale prod = new Sale();
-                prod.setTitle(tmp2[0]);
-                prod.setPrice(tmp2[1]);
-                product.add(prod);
-            }*/
-            statement.executeUpdate("insert into managers value(" + str3[0] + ",'" + str3[1] + "','" + str3[2] + "','" + str3[3] + "');");
+        statement.execute("CREATE TABLE IF NOT EXISTS sales(id Integer(11), id_man Integer(11), title varchar(50), price Integer(11));");
+        statement.executeUpdate("delete from managers where id >= 0");
+        statement.executeUpdate("delete from sales where id >= 0");
+        FileReader developer = new FileReader(nameFile);
+        Scanner sc = new Scanner(developer);
+        int countSale = 0;
+        while (sc.hasNextLine())
+        {
+            ArrayList<Sale> sales = new ArrayList<>();
+            String line = sc.nextLine();
+            String []temp1 = line.split(" \\|\\| ");
+            String []temp2 = temp1[0].split("; ");
+            String []temp3 = temp1[1].split("; ");
+            super.setId(temp2[0]);
+            super.setFio(temp2[1]);
+            super.setEmail(temp2[2]);
+            super.setPhone(temp2[3]);
+            for (int i = 0; i < temp3.length; i++)
+            {
+                String []temp4 = temp3[i].split(", ");
+                sales.add(new Sale(temp4[0], temp4[1]));
+                statement.executeUpdate("INSERT INTO sales VALUES(" + (Integer.parseInt(super.getId())*(temp3.length+1) + i) + "," + super.getId() + ",'" + temp4[0] + "','" + temp4[1] + "');");
+            }
+            statement.executeUpdate("INSERT INTO managers VALUES(" + super.getId() + ",'" + super.getFio() + "','" + super.getEmail() + "','" + super.getPhone() + "');");
         }
         connection.close();
     }
