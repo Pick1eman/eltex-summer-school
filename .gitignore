@@ -104,3 +104,12 @@ Hibernate/settings.gradle
 Hibernate/src/main/java/resources/db.properties
 Hibernate/.idea/
 Hibernate/gradle/
+
+MongoDB(simple)/build/
+MongoDB(simple)/gradlew
+MongoDB(simple)/.gradle/
+MongoDB(simple)/gradlew.bat
+MongoDB(simple)/settings.gradle
+MongoDB(simple)/src/main/java/resources/db.properties
+MongoDB(simple)/.idea/
+MongoDB(simple)/gradle/

@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = "ru.eltex.Main"
+
+group 'mongodb'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: "org.mongodb",name: "mongo-java-driver",version:'3.10.2'
+}
