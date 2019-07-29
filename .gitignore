@@ -95,3 +95,12 @@ MySQL/settings.gradle
 MySQL/src/main/java/resources/db.properties
 MySQL/.idea/
 MySQL/gradle/
+
+Hibernate/build/
+Hibernate/gradlew
+Hibernate/.gradle/
+Hibernate/gradlew.bat
+Hibernate/settings.gradle
+Hibernate/src/main/java/resources/db.properties
+Hibernate/.idea/
+Hibernate/gradle/
