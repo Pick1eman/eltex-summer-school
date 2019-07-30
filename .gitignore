@@ -113,3 +113,12 @@ MongoDB(simple)/settings.gradle
 MongoDB(simple)/src/main/java/resources/db.properties
 MongoDB(simple)/.idea/
 MongoDB(simple)/gradle/
+
+Spring/build/
+Spring/gradlew
+Spring/.gradle/
+Spring/gradlew.bat
+Spring/settings.gradle
+Spring/src/main/java/resources/db.properties
+Spring/.idea/
+Spring/gradle/
