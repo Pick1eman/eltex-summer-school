@@ -15,19 +15,19 @@ public class Main
     }
 
     @Bean
-    public CommandLineRunner demo(UserRepository crudRepository)
+    public CommandLineRunner demo(UserRepository mongoRepository)
     {
         return (args)-> {
-            crudRepository.save(new User(0,"Eugene","900"));
-            crudRepository.save(new User(1,"Alex","123"));
-            for (User user: crudRepository.findAll())
+            mongoRepository.save(new User(0,"Eugene","900"));
+            mongoRepository.save(new User(1,"Alex","123"));
+            for (User user: mongoRepository.findAll())
             {
                 System.out.println(user.getFio());
             }
         };
     }
 
-    @Bean
+    /*@Bean
     public CommandLineRunner demo2(CallRepository crudRepository)
     {
         return (args)-> {
@@ -35,5 +35,5 @@ public class Main
             crudRepository.save(new Call(2,1));
 
         };
-    }
+    }*/
 }

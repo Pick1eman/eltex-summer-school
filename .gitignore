@@ -1,4 +1,4 @@
-.idea/*.*
+.idea/
 .gradle/
 Accounts/build/
 Accounts/gradlew
@@ -68,6 +68,8 @@ WebServer/gradlew
 WebServer/.gradle/
 WebServer/gradlew.bat
 WebServer/settings.gradle
+WebServer/.idea/
+WebServer/gradle/
 
 BroadcastServer/build/
 BroadcastServer/gradlew
@@ -122,3 +124,4 @@ Spring/settings.gradle
 Spring/src/main/java/resources/db.properties
 Spring/.idea/
 Spring/gradle/
+
