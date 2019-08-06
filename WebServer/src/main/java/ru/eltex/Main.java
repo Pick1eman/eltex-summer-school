@@ -1,5 +1,6 @@
 package ru.eltex;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,29 +13,9 @@ import java.util.*;
 @SpringBootApplication
 class Main
 {
-    public static String serv = "";
-    public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(2973);
-        File file = new File("/home/user/Рабочий стол/eltex-summer-school/WebServer/src/main/resources/index.html");
-        Scanner scanner = new Scanner(file).useDelimiter("\0");
-        String in = scanner.next();
-        while (true)
-        {
-            Socket client = serverSocket.accept();
-            new Thread(() -> {
-                try {
-                    serv = "HTTP/1.0 200 OK\nContent-Length:" + Integer.toString(in.length()) + "\n\n" + in;
-                    OutputStream outStream = client.getOutputStream();
-                    PrintWriter out = new PrintWriter(outStream);
-                    out.write(serv);
-                    out.flush();
-                } catch (IOException error)
-                {
-                    System.err.println(error);
-                }
-            }).start();
-        }
-        //SpringApplication.run(Main.class);
+    private static String serv = "";
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class);
     }
 
     @Bean
@@ -42,9 +23,6 @@ class Main
     {
         return (args)-> {
             ServerSocket serverSocket = new ServerSocket(2973);
-            File file = new File("/home/user/Рабочий стол/eltex-summer-school/WebServer/src/main/resources/index.html");
-            Scanner scFile = new Scanner(file).useDelimiter("\0");
-            String in = scFile.next();
 
             while (true)
             {
@@ -61,15 +39,37 @@ class Main
                         String []token = temp[1].split("/");
                         System.out.println(token[1]);
                         PrintWriter out = new PrintWriter(outStream);
-                        serv = "HTTP/1.0 200 OK\nContent-Length:" + Integer.toString(in.length()) + "\n\n" + in;
+                        String output = "";
                         if (token[1].equals("get_users") && token.length == 2)
                         {
-                            mongoRepository.findAll().forEach((elem)->{serv += "\nid = " + elem.getId() + "; Fio = \"" + elem.getFio() + "\"; Phone = " + elem.getPhone();});
-                            out.write(serv); out.flush();
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            ArrayList<User> users = new ArrayList<>(mongoRepository.findAll());
+                            output = objectMapper.writeValueAsString(users);
+                            output = "HTTP/1.1 200 OK\nContent-Type:application/json\n\n" + output;
+                            System.out.println(output);
+                            out.write(output);
+                            out.flush();
                         } else if (token[1].equals("get_user")){
-                            mongoRepository.findAll().forEach((elem) -> {if (Integer.parseInt(token[2]) == elem.getId()) {serv += "\nid = " + elem.getId() + "; Fio = \"" + elem.getFio() + "\"; Phone = " + elem.getPhone();}});
-                            out.write(serv); out.flush();
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            User user = mongoRepository.findById(Integer.valueOf(token[2])).get();
+                            output = objectMapper.writeValueAsString(user);
+                            output = "HTTP/1.1 200 OK\nContent-Type:application/json\n\n" + output;
+                            out.write(output);
+                            out.flush();
+                        } else if (token[1].equals("index.html") && token.length == 2)
+                        {
+                            File file = new File("/home/user/Рабочий стол/eltex-summer-school/WebServer/src/main/resources/index.html");
+                            Scanner scFile = new Scanner(file).useDelimiter("\0");
+                            String html = scFile.next();
+                            serv = "HTTP/1.0 200 OK\nContent-Length:" + html.length() + "\n\n" + html;
+                            out.write(serv);
+                            out.flush();
                         }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        client.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

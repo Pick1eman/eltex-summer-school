@@ -18,8 +18,6 @@ class User {
     @Getter
     @Setter
     private String phone;
-    @Setter @Getter
-    private Integer id_call;
 
     User(Integer id, String fio, String phone)
     {
