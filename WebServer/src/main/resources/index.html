@@ -1,6 +1,33 @@
 <!DOCTYPE>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <script src = "http://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <script type = "text/javascript">
+        $(document).ready(function()
+        {
+            $.get("/get_users",function(data)
+            {
+                console.log(data);
+                $(".user").html(data[0].fio);
+            });
+        });
+
+    </script>
+
     <body>
-        Test
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6"> </div>
+        </div>
+    </div>
     </body>
 </html>

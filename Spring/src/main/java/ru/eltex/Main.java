@@ -27,13 +27,13 @@ public class Main
         };
     }
 
-    /*@Bean
+    @Bean
     public CommandLineRunner demo2(CallRepository crudRepository)
     {
         return (args)-> {
-            crudRepository.save(new Call(1,2));
-            crudRepository.save(new Call(2,1));
+            crudRepository.save(new Call2(1,2));
+            crudRepository.save(new Call2(2,1));
 
         };
-    }*/
+    }
 }

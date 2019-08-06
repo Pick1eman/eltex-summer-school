@@ -12,9 +12,29 @@ import java.util.*;
 @SpringBootApplication
 class Main
 {
-    public String serv = "";
-    public static void main(String[] args) {
-        SpringApplication.run(Main.class);
+    public static String serv = "";
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(2973);
+        File file = new File("/home/user/Рабочий стол/eltex-summer-school/WebServer/src/main/resources/index.html");
+        Scanner scanner = new Scanner(file).useDelimiter("\0");
+        String in = scanner.next();
+        while (true)
+        {
+            Socket client = serverSocket.accept();
+            new Thread(() -> {
+                try {
+                    serv = "HTTP/1.0 200 OK\nContent-Length:" + Integer.toString(in.length()) + "\n\n" + in;
+                    OutputStream outStream = client.getOutputStream();
+                    PrintWriter out = new PrintWriter(outStream);
+                    out.write(serv);
+                    out.flush();
+                } catch (IOException error)
+                {
+                    System.err.println(error);
+                }
+            }).start();
+        }
+        //SpringApplication.run(Main.class);
     }
 
     @Bean
