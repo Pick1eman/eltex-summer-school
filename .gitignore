@@ -125,3 +125,11 @@ Spring/src/main/java/resources/db.properties
 Spring/.idea/
 Spring/gradle/
 
+Servlet/build/
+Servlet/gradlew
+Servlet/.gradle/
+Servlet/gradlew.bat
+Servlet/settings.gradle
+Servlet/.idea/
+Servlet/gradle/
+
