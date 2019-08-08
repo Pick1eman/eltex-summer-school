@@ -133,3 +133,12 @@ Servlet/settings.gradle
 Servlet/.idea/
 Servlet/gradle/
 
+VertxServer/build/
+VertxServer/gradlew
+VertxServer/.gradle/
+VertxServer/gradlew.bat
+VertxServer/settings.gradle
+VertxServer/.idea/
+VertxServer/gradle/
+
+
