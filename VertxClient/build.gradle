@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+mainClassName = "ru.eltex.Main"
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.vertx:vertx-core:3.8.0'
+    compile 'io.vertx:vertx-lang-groovy:3.8.0'
+}

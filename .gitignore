@@ -141,4 +141,10 @@ VertxServer/settings.gradle
 VertxServer/.idea/
 VertxServer/gradle/
 
-
+VertxClient/build/
+VertxClient/gradlew
+VertxClient/.gradle/
+VertxClient/gradlew.bat
+VertxClient/settings.gradle
+VertxClient/.idea/
+VertxClient/gradle/
