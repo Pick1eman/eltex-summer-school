@@ -29,4 +29,5 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-web")
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 }
