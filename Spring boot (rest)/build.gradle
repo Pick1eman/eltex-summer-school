@@ -1,0 +1,32 @@
+buildscript{
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'application'
+}
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
+
+mainClassName = "ru.eltex.Main"
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("org.springframework.boot:spring-boot-starter-web")
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+}

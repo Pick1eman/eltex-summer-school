@@ -148,3 +148,14 @@ VertxClient/gradlew.bat
 VertxClient/settings.gradle
 VertxClient/.idea/
 VertxClient/gradle/
+
+
+Spring boot (rest)/build/
+Spring boot (rest)/gradlew
+Spring boot (rest)/.gradle/
+Spring boot (rest)/gradlew.bat
+Spring boot (rest)/settings.gradle
+Spring boot (rest)/.idea/
+Spring boot (rest)/gradle/
+
+
