@@ -1,7 +1,15 @@
 <!DOCTYPE>
 <html xmlns:th="http://www.thymeleaf.org">
+    <script type="text/javascript">
+        function remove(id){
+            $.get("/delete_user/" + id, function(data){
+                console.log(data);
+            });
+        }
+    </script>
+
     <body>
-        <p th:text="'Hello,' + ${name} + '!'"></p>
-        <p th:text="'Hello,' + ${user.getFio()} + '!'"></p>
+        <button th:text="${user1.getFio()}" + th:onclick = "'remove(' + ${user1.getId()} + ')'}"></button><br/>
+        <button th:text="${user2.getFio()}" + th:onclick = "'remove(' + ${user2.getId()} + ')'}"></button><br/>
     </body>
 </html>

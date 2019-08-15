@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+javafx {
+    version = '12.0.1'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+mainClassName = 'ru.eltex.App'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+dependencies {
+    compile 'io.vertx:vertx-core:3.8.0'
+    compile 'io.vertx:vertx-lang-groovy:3.8.0'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.+'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+}
+
+run {
+    standardInput = System.in
+}

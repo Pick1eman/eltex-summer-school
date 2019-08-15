@@ -159,3 +159,12 @@ Spring boot (rest)/.idea/
 Spring boot (rest)/gradle/
 
 
+JavaFX/build/
+JavaFX/gradlew
+JavaFX/.gradle/
+JavaFX/gradlew.bat
+JavaFX/settings.gradle
+JavaFX/.idea/
+JavaFX/gradle/
+
+
