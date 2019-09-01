@@ -168,3 +168,12 @@ JavaFX/.idea/
 JavaFX/gradle/
 
 
+Collection/build/
+Collection/gradlew
+Collection/.gradle/
+Collection/gradlew.bat
+Collection/settings.gradle
+Collection/.idea/
+Collection/gradle/
+
+

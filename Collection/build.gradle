@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+mainClassName = "ru.eltex.Main"
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': '4.10.2',
+                'Main-Class': 'eltex.tasks.Main'
+    }
+    baseName = project.name + '-all'
+    from {
+        configurations.compile.collect
+                { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+    standardInput = System.in
+}
+
